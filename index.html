@@ -182,6 +182,97 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://sheeepli.github.io/2021/05/16/design-patterns/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="sheeepli">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="sheeep's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/16/design-patterns/" class="post-title-link" itemprop="url">关于设计模式的那些事</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-16 16:53:46 / 修改时间：22:10:37" itemprop="dateCreated datePublished" datetime="2021-05-16T16:53:46+08:00">2021-05-16</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>隐约雷鸣，阴霾天空，但盼风雨来，能留你在此<br>隐约雷鸣，阴霾天空，即使天无雨，我亦留此地</p>
+</blockquote>
+<h2 id="创建型模式"><a href="#创建型模式" class="headerlink" title="创建型模式"></a>创建型模式</h2><h3 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h3><p><strong>工厂方法模式</strong>是一种创建型设计模式， 其在父类中提供一个创建对象的方法， 允许子类决定实例化对象的类型。</p>
+<p>使用场景：</p>
+<ol>
+<li>当你在编写代码的过程中，无法预知对象确切类别及其依赖关系时。</li>
+<li>如果你希望用户能扩展你软件库或框架的内部组件。</li>
+<li>如果你希望复用现有对象来节省系统资源，而不是每次都重新创建对象。</li>
+</ol>
+<p>实现方法：</p>
+<ol>
+<li><p>让所有产品都遵循同一接口。该接口必须声明对所有产品都有意义的方法。</p>
+</li>
+<li><p>在创建类中添加一个空的工厂方法。该方法饭的饭会类型必须遵循通用的产品接口。</p>
+</li>
+<li><p>在创建者代码中找到对于产品构造函数的所有引用。将它们依次替换为对于工厂方法的调用，同时将产品的代码移入工厂方法。你可能需要在工厂方法中添加临时参数俩控制饭会的产品类型。</p>
+</li>
+<li><p>为工厂方法中的每种产品编写一个创建者子类，然后在子类中重写工厂方法，并将基于方法中的相关创建代码移动到工厂方法中。</p>
+</li>
+<li><p>如果应用中的产品类型太多，那么为每个产品创建子类并无太大必要，这时可以在子类中复用基类中的控制参数。</p>
+<p> 例如，设想你有以下一些层次结构的类。基类<code>邮件</code>及其子类<code>航空邮件</code>和<code>陆路邮件</code>；<code>运输</code>及其子类<code>飞机</code>，<code>卡车</code>，<code>火车</code>。<code>航空邮件</code>仅使用<code>飞机</code>对象，而<code>陆路邮件</code>则会同时使用<code>卡车</code>和<code>火车</code>对象。你可以编写一个新的子类（例如<code>火车邮件</code>）来处理这两种情况，但是还有其他可选的方案。客户端代码可以给<code>陆路邮件</code>类传递一个参数，用于控制其希望获得的产品。</p>
+</li>
+<li><p>如果代码经过上述移动后，基础工厂方法中已经没有任何代码，你可以将其转变为抽象类。如果基础工厂方法中还有其他语句，你可以将其设置为该方法的默认行为。</p>
+</li>
+</ol>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/16/design-patterns/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://sheeepli.github.io/2021/05/13/request/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -925,90 +1016,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://sheeepli.github.io/2020/03/20/promise/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="sheeepli">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="sheeep's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/20/promise/" class="post-title-link" itemprop="url">Promise 基础</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-20 15:20:59" itemprop="dateCreated datePublished" datetime="2020-03-20T15:20:59+08:00">2020-03-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-02 23:29:25" itemprop="dateModified" datetime="2021-05-02T23:29:25+08:00">2021-05-02</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index">
-                    <span itemprop="name">编程</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>要手写 Promise 我们必须先要了解 Promise 的作用以及设计思想。</p>
-<p>Promise 对象是 Javascript 的异步操作解决方式，为异步操作提供统一接口。它的设计思想是，所有异步任务都返回要给 Promise 实例。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/03/20/promise/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1057,7 +1064,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-count">30</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
