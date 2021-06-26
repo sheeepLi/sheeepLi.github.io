@@ -182,6 +182,148 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://sheeepli.github.io/2021/06/01/interview/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="sheeepli">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="sheeep's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/06/01/interview/" class="post-title-link" itemprop="url">面试题</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-06-01 08:35:43" itemprop="dateCreated datePublished" datetime="2021-06-01T08:35:43+08:00">2021-06-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-06-26 19:07:30" itemprop="dateModified" datetime="2021-06-26T19:07:30+08:00">2021-06-26</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="如何处理移动端-1px-渲染成-2px-的问题"><a href="#如何处理移动端-1px-渲染成-2px-的问题" class="headerlink" title="如何处理移动端 1px 渲染成 2px 的问题"></a>如何处理移动端 1px 渲染成 2px 的问题</h2><ul>
+<li><p>局部处理</p>
+<ul>
+<li>mate 标签中 viewport 属性，initial-scale 属性设置为 1</li>
+<li>rem 按照设计稿标准走，外加利用 transform 的 scale(0.5) 缩小一半</li>
+</ul>
+</li>
+<li><p>全局处理</p>
+<ul>
+<li>mate 标签中 viewport 属性，initial-scale 属性设置为 0.5</li>
+<li>rem 按照设计稿标准走</li>
+</ul>
+</li>
+</ul>
+<h2 id="BFC-Box、Formatting-Context-块级格式化上下文"><a href="#BFC-Box、Formatting-Context-块级格式化上下文" class="headerlink" title="BFC - Box、Formatting Context - 块级格式化上下文"></a>BFC - Box、Formatting Context - 块级格式化上下文</h2><p>BFC 是一个独立的渲染区域，只有 Block-level box 参与，它规定了内部的 Block-level Box 如何布局，并且与这个区域外部毫不相干。</p>
+<p>Box 是 CSS 布局的对象和基本单位，一个页面是由一个或多个 Box 组成。元素的类型和 display 属性决定了这个 Box 的类型。不同类型的 Box 会参与不同的 Formatting Context（一个决定如何选人文档的容器），因此 Box 内的元素会以不同的方式渲染。</p>
+<!-- TODO 补全计划 https://blog.csdn.net/sinat_36422236/article/details/88763187 -->
+
+<ul>
+<li><p>创建规则</p>
+<ul>
+<li>根元素</li>
+<li>浮动元素（float 不取值为 none）</li>
+<li>绝对定位元素（position 取值为 absolute 或 fixed）</li>
+<li>display 取值为 inline-block、table-cell、flex、inline-flex 之一的元素</li>
+<li>overflow 不取值为 visible 的元素</li>
+</ul>
+</li>
+<li><p>作用</p>
+<ul>
+<li>可以包含浮动元素</li>
+<li>不被浮动元素覆盖</li>
+<li>阻止父子元素 margin 折叠</li>
+</ul>
+</li>
+</ul>
+<h2 id="IE-盒模型、W3C-盒模型"><a href="#IE-盒模型、W3C-盒模型" class="headerlink" title="IE 盒模型、W3C 盒模型"></a>IE 盒模型、W3C 盒模型</h2><ul>
+<li><p>W3C 盒模型：内容（content）、填充（padding）、边界（margin）、边框（border）；</p>
+<ul>
+<li>box-sizing: content-box</li>
+<li>width = content width</li>
+</ul>
+</li>
+<li><p>IE 盒模型：IE 的 content 部分把 border 和 padding 计算进去了</p>
+<ul>
+<li>box-sizing: border-box</li>
+<li>width = border + padding + content width</li>
+</ul>
+</li>
+</ul>
+<h2 id="居中"><a href="#居中" class="headerlink" title="居中"></a>居中</h2><ul>
+<li><p>水平居中方法</p>
+<ul>
+<li>元素为行内元素，设置父元素 text-align:center</li>
+<li>如果元素宽度固定，可以设置左右 margin 为 auto</li>
+<li>如果元素为绝对定位，设置父元素 position:relative，元素设 left:0;right:0;margin:auto</li>
+<li>使用 flex-box 布局，指定 justify-content 属性为 center</li>
+<li>display 设置为 table-cell</li>
+</ul>
+</li>
+<li><p>垂直居中的方法</p>
+<ul>
+<li>将显示方式设置为表格，display:table-cell，同时设置 vertial-align:middle</li>
+<li>使用 flex 布局，设置 align-items: center</li>
+<li>绝对定位总设置 bottom:0;top:0;，并设置 margin:auto</li>
+<li>绝对定位中固定高度时，设置 top:50%;margin-top 值为高度一半的负值</li>
+<li>文本垂直居中设置 line-height 为 height 值</li>
+</ul>
+<p><a href="https://juejin.cn/post/6914831351271292936?utm_source=gold_browser_extension" target="_blank" rel="noopener">https://juejin.cn/post/6914831351271292936?utm_source=gold_browser_extension</a></p>
+<p><a href="https://juejin.cn/post/6844903806715559943" target="_blank" rel="noopener">https://juejin.cn/post/6844903806715559943</a></p>
+</li>
+</ul>
+<h2 id="当一个-CSS-文件很大的时候，如果还没有下载完成，js会不会执行"><a href="#当一个-CSS-文件很大的时候，如果还没有下载完成，js会不会执行" class="headerlink" title="当一个 CSS 文件很大的时候，如果还没有下载完成，js会不会执行"></a>当一个 CSS 文件很大的时候，如果还没有下载完成，js会不会执行</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>css阻塞<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="string">'before css'</span>)</span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> startDate = <span class="keyword">new</span> <span class="built_in">Date</span>()</span></span><br><span class="line"><span class="actionscript">      <span class="function"><span class="keyword">function</span> <span class="title">h</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(<span class="built_in">document</span>.querySelectorAll(<span class="string">'h1'</span>))</span></span><br><span class="line">      &#125;</span><br><span class="line">      setTimeout(h, 0)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"https://cdn.bootcss.com/bootstrap/4.0.0-alpha.6/css/bootstrap.css?timestame=1"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>这是红色的<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> endDate = <span class="keyword">new</span> <span class="built_in">Date</span>()</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="string">'after css'</span>)</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="string">'经过了'</span> + (endDate -startDate) + <span class="string">'ms'</span>)</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>将网速调整至低速，执行以上代码，会发现能够控制台第一时间输出的是 <code>before css</code> 之后能够获取到 h1 标签，但是却没有渲染出来，也就说明 CSS 下载过程并不会阻塞 DOM 的解析，但是会阻塞 DOM 的渲染。隔了一段时间之后才能看到 <code>after css</code> 的字样，但这不能证明会阻塞，但是当我们去掉 link 标签之后，<code>after css</code> 会马上被打印出来，这样就能够证明 CSS 的下载会阻塞 js 的执行</p>
+<p>附webkit流程一张</p>
+<p><img src="1ydsk1wex0.png" alt="1ydsk1wex0.png"></p>
+<h2 id="关于浏览器性能优化的需要重新开一个写"><a href="#关于浏览器性能优化的需要重新开一个写" class="headerlink" title="关于浏览器性能优化的需要重新开一个写"></a>关于浏览器性能优化的需要重新开一个写</h2><p><a href="https://blog.csdn.net/y_programmer_ape/article/details/107307676" target="_blank" rel="noopener">https://blog.csdn.net/y_programmer_ape/article/details/107307676</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://sheeepli.github.io/2021/05/16/design-patterns/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -213,7 +355,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-23 22:32:59" itemprop="dateModified" datetime="2021-05-23T22:32:59+08:00">2021-05-23</time>
+                <time title="修改时间：2021-06-26 19:06:15" itemprop="dateModified" datetime="2021-06-26T19:06:15+08:00">2021-06-26</time>
               </span>
 
           
@@ -230,29 +372,8 @@
           <blockquote>
 <p>隐约雷鸣，阴霾天空，但盼风雨来，能留你在此<br>隐约雷鸣，阴霾天空，即使天无雨，我亦留此地</p>
 </blockquote>
-<h2 id="创建型模式"><a href="#创建型模式" class="headerlink" title="创建型模式"></a>创建型模式</h2><h3 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a><a href="https://refactoringguru.cn/design-patterns/factory-method" target="_blank" rel="noopener">工厂模式</a></h3><p><strong>工厂方法模式</strong>是一种创建型设计模式， 其在父类中提供一个创建对象的方法， 允许子类决定实例化对象的类型。</p>
-<p>使用场景：</p>
-<ol>
-<li>当你在编写代码的过程中，无法预知对象确切类别及其依赖关系时。</li>
-<li>如果你希望用户能扩展你软件库或框架的内部组件。</li>
-<li>如果你希望复用现有对象来节省系统资源，而不是每次都重新创建对象。</li>
-</ol>
-<p>实现方法：</p>
-<ol>
-<li><p>让所有产品都遵循同一接口。该接口必须声明对所有产品都有意义的方法。</p>
-</li>
-<li><p>在创建类中添加一个空的工厂方法。该方法饭的饭会类型必须遵循通用的产品接口。</p>
-</li>
-<li><p>在创建者代码中找到对于产品构造函数的所有引用。将它们依次替换为对于工厂方法的调用，同时将产品的代码移入工厂方法。你可能需要在工厂方法中添加临时参数俩控制饭会的产品类型。</p>
-</li>
-<li><p>为工厂方法中的每种产品编写一个创建者子类，然后在子类中重写工厂方法，并将基于方法中的相关创建代码移动到工厂方法中。</p>
-</li>
-<li><p>如果应用中的产品类型太多，那么为每个产品创建子类并无太大必要，这时可以在子类中复用基类中的控制参数。</p>
-<p> 例如，设想你有以下一些层次结构的类。基类<code>邮件</code>及其子类<code>航空邮件</code>和<code>陆路邮件</code>；<code>运输</code>及其子类<code>飞机</code>，<code>卡车</code>，<code>火车</code>。<code>航空邮件</code>仅使用<code>飞机</code>对象，而<code>陆路邮件</code>则会同时使用<code>卡车</code>和<code>火车</code>对象。你可以编写一个新的子类（例如<code>火车邮件</code>）来处理这两种情况，但是还有其他可选的方案。客户端代码可以给<code>陆路邮件</code>类传递一个参数，用于控制其希望获得的产品。</p>
-</li>
-<li><p>如果代码经过上述移动后，基础工厂方法中已经没有任何代码，你可以将其转变为抽象类。如果基础工厂方法中还有其他语句，你可以将其设置为该方法的默认行为。</p>
-</li>
-</ol>
+<p>设计模式真的是学了忘，忘了学，学了又忘，学的时候想着优化的地方还挺多，要用到的时候根本想不起来。</p>
+<p>多学一点东西，多一种思考方式，虽然不一定用得到，但是积累到某个时刻一定会有回报的。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/05/16/design-patterns/#more" rel="contents">
@@ -937,96 +1058,11 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://sheeepli.github.io/2020/03/23/to-be-better/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="sheeepli">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="sheeep's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/23/to-be-better/" class="post-title-link" itemprop="url">成为更好的人</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-23 18:39:55" itemprop="dateCreated datePublished" datetime="2020-03-23T18:39:55+08:00">2020-03-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-02 23:29:25" itemprop="dateModified" datetime="2021-05-02T23:29:25+08:00">2021-05-02</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index">
-                    <span itemprop="name">生活</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>种一棵树，最好的时间是十年前，其次是现在。—— 非洲经济学家 Dambisa Moyo 《dead aid》</p>
-<p>认真的，从现在起成为一个更好的人。</p>
-<p>任务分为长期执行和短期任务。长期执行需要每日打卡，短期自行努力。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/03/23/to-be-better/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1070,7 +1106,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-count">31</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
